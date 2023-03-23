@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+  {% block content %}
+  <div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 mt-5 p-4 border border-2 shadow-lg border-dark rounded-5 bg-white">
+            <h1 class="text-center ">Todo Form</h1>
+            <hr>
+            <form class="mt-5" action="" method="POST">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button class="btn btn-outline-info" type="submit">submit</button>
+            </form>
+          
+        </div>
+        <div class="col-3"></div>
+    </div>
+  </div>
+
+
+
+  {% endblock content %}
+

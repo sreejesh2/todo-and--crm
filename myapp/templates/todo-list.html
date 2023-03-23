@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-white text-center m-5">All Todos</h1>
+    <table class="table bg-white  shadow rounded-5">
+        <tr>
+            <th>Id</th>
+            <th>Task</th>
+            <th>User</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        {% for todo in todos%}
+        <tr class="">
+            <td>{{forloop.counter}}</td>
+            
+            {% if todo.status == True %}
+               <td class="text-decoration-line-through"><h4>{{todo.task}}</h4></td>
+            {% else %}
+            <td ><h4>{{todo.task}}</h4></td>
+            {% endif %}
+            <td>{{todo.user}}</td>
+            <td>{{todo.status}}</td>
+            <td>{{todo.date}}</td>
+            <td>
+                <a class="btn btn-warning" href="{%url 'status' todo.id%}">Make True</a>
+                <a class="btn btn-danger" href="{% url 'delete' todo.id%}">Delete</a>
+                <a class="btn btn-info" href="{% url 'todo-detail' todo.id%}">View</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    <a href="{% url 'add-todo'%}" class="btn btn-success">Create Todo</a>
+    <a href="{% url 'completed'%}" class="btn btn-warning">Completed Todos</a>
+</div>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-white text-center m-5"> Todo</h1>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 bg-white p-5 border border-3 rounded-5">
+            <h6>User: <span class="text-success"> {{todo.user}}</span></h6>
+            <hr>
+            <h3>Task:  <span class="text-success"> {{todo.task}}</span></h3>
+            <hr>
+            <span>Status: <span class="text-success"> {{todo.status}}</span></span>
+            <hr>
+            <p>Date: <span class="text-success"> {{todo.date}}</span></p>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+</div>
+{% endblock content %}

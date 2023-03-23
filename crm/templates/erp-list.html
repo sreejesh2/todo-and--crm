@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-white text-center m-5">All Employee</h1>
+    <table class="table bg-white  shadow rounded-5">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Email</th>
+            <th>Profile Picture</th>
+            <th>Actions</th>
+        </tr>
+        {% for e in employee%}
+        <tr class="">
+            <td>{{forloop.counter}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.department}}</td>
+            <td>{{e.salary}}</td>
+            <td>{{e.email}}</td>
+            {% if e.profile_pic %}
+            
+             <td>
+                <img  style="width: 60px; height: 60px; border-radius: 20%;" src="{{e.profile_pic.url}}" alt="img">
+             </td>
+            {% endif %}
+            <td><a class="btn btn-info" href="{% url 'emp-detail' e.id%}">View</a></td>
+          
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+
+{% endblock content %}

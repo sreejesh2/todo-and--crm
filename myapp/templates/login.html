@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <h1 class="text-white text-center m-5 "> Login Page</h1>
+
+    {% for msg in messages %}
+    {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+     <strong>{{msg}}</strong> 
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+    {% else %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <strong>{{msg}}</strong> 
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+    {% endif %}
+ {% endfor %}
+
+ 
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 bg-white p-5 border border-3 rounded-5">
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button class="btn btn-warning" type="submit">Login</button>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+</div>
+{% endblock content %}

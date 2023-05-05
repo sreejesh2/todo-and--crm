@@ -24,6 +24,9 @@ urlpatterns = [
     path("todo/",include('myapp.urls')),
     path("employee/",include('crm.urls')),
     path('register/',views.RegistrationView.as_view(),name='register'),
+    path('login/',views.SignInView.as_view(),name='login'),
+    path('logout/',views.signout_view,name='logout'),
+    path('api/',include('crmapi.urls')),
 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
